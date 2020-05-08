@@ -32,7 +32,7 @@ public class txnscript
 	private static String jdbcMysqlDatabase = "exb1610" ;
 	private static String jdbcMysqlUser = "root" ;
 	private static String jdbcMysqlPass = "tsimiski4" ;
-	private static String jdbcMysqlIntricacies = "zeroDateTimeBehavior=CONVERT_TO_NULL&serverTimezone=UTC" ;
+	private static String jdbcMysqlIntricacies = "zeroDateTimeBehavior=CONVERT_TO_NULL&serverTimezone=UTC";
 	
 	private static String jdbcUrl ;
 	
