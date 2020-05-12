@@ -314,31 +314,63 @@ public class txnscript
 	
 	
     public static String updateVille (Integer id, String nom, Integer codePostal)
+	    if ( id == null )
+		{
+			result = updateVilleByName ( nom, codePostal ) ;
+		} 
+	else{
+   
+		
+		String sql = "UPDATE Villes SET nom = ?, code_postal = ? WHERE id = ?" ;
+
+		try
+		{
+				PreparedStatement pstmt = cnx.prepareStatement(sql) ;
+					pstmt.setString(1, nom);
+					pstmt.setDouble(2, codePostal);
+					pstmt.setInt(3, id);
+					pstmt.executeUpdate();
+		}
+		catch (SQLException e)
+		{
+			System.out.println(e.getMessage());
+		}
+	    }
+		result = result + id ;
+		result = result + "/" + codePostal ;
+		result = result + "/" + nom ;
+		result = result + saut_de_ligne ;		
+		return result ;
+	    
+    }
+	// creation fonction pour EXB1613
+    public static String updateVilleByName (String nom, Integer codePostal)
     {
         String result = "" ;
-		
 		String sql = "UPDATE Villes SET code_postal = ? WHERE nom = ?" ;
 
 		try
 		{
 				PreparedStatement pstmt = cnx.prepareStatement(sql) ;
+				pstmt.setString(1, nom);
+				pstmt.setDouble(2, codePostal);
+				pstmt.setInt(3, id);
 				pstmt.setDouble(1, codePostal);
 				pstmt.setString(2, nom);
-				//pstmt.setInt(3, id);
 				pstmt.executeUpdate();
 		}
 		catch (SQLException e)
 		{
 			System.out.println(e.getMessage());
 		}
-			
+
 		result = result + id ;
 		result = result + "/" + codePostal ;
 		result = result + "/" + nom ;
 		result = result + saut_de_ligne ;		
+
 		return result ;
     }
-	
 
 	
 	
