@@ -136,11 +136,11 @@ public class simplissimeCmdline {
 					System.out.println( display ) ;
 
 					display = txn.close() ;
-					System.out.println( display ) ;
-				}
-            }
-        }
-        catch (ParseException e) {
+					System.out.println( display ) ;}}
+				
+            
+        
+	} catch (ParseException e) {
             e.printStackTrace();
         }
 	}
